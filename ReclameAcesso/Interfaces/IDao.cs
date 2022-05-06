@@ -10,12 +10,12 @@ namespace ReclameAcesso.Interfaces
     {
 
         void ComandoDBConectar();
-
-        void ComandoDBExecuar();
-        void ComandoDBSeleciorTudo();
-        void ComandoDBSelecionarLinha();
-        void ComandoDB
-
+        void ComandoDBIniciarTransacaoILCommited();
+        string ComandoDBSelecionarTudo(string nomeTabela);
+        string ComandoDBSelecionarLinha(string nomeTabela, string id, string idValor);
+        //void ComandoDBJuntarTabelas();
+        void ComandoChecarConexaoAberta();
+        void ComandoChecarConexaoFechada();
 
     }
 }

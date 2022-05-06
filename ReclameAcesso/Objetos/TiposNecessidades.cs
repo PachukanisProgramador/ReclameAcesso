@@ -9,8 +9,13 @@ namespace ReclameAcesso.Objetos
     class TiposNecessidades
     {
 
-        public int idTiposNecessidades { get; set; }
-        public int tipo { get; set; }
+        public int IdTiposNecessidades { get; set; }
+        public string NomeTipoNecessidade { get; set; }
 
+
+        public TiposNecessidades(string nomeTabela = "tiposnecessidades")
+        {
+
+        }
     }
 }

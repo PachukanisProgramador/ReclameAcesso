@@ -14,5 +14,10 @@ namespace ReclameAcesso.Objetos
         public string Endereco { get; set; }
         public string Email { get; set; }
 
+        public Instituicoes(string nomeTabela = "instituicoes", string valores = "IdInstituicoes, Nome, Endereco, Email", string referencias = "'', @Nome, @Endereco, @Email")
+        {
+
+        }
+
     }
 }

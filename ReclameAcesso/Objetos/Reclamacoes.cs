@@ -13,5 +13,9 @@ namespace ReclameAcesso.Objetos
         public string Texto { get; set; }
         public string TituloTexto { get; set; }
 
-}
+        public Reclamacoes(string nomeTabela = "reclamacoes")
+        {
+
+        }
+    }
 }

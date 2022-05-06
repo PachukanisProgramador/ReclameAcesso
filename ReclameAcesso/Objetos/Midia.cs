@@ -10,12 +10,16 @@ namespace ReclameAcesso.Objetos
 {
 
         public int IdMidia { get; set; }
-        public byte Foto { get; set; }
-        public byte Audio { get; set; }
-        public byte Video { get; set; }
+        public byte[] Foto { get; set; }
+        public byte[] Audio { get; set; }
+        public byte[] Video { get; set; }
 
+        public Midia(string nomeTabela = "midia")
+        {
 
-        DataReader GetBytes();
+            //DataReader GetBytes();
+
+        }
 
     }
 }
