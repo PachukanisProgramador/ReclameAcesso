@@ -22,3 +22,51 @@ C:\Users\Thiago\Desktop\asd\ReclameAcesso\obj\Debug\ReclameAcesso.csproj.CopyCom
 C:\Users\Thiago\Desktop\asd\ReclameAcesso\obj\Debug\ReclameAcesso.exe
 C:\Users\Thiago\Desktop\asd\ReclameAcesso\obj\Debug\ReclameAcesso.pdb
 C:\Users\Thiago\Desktop\asd\ReclameAcesso\obj\Debug\ReclameAcesso.ReclameAcesso.resources
+C:\Users\Thiago\Source\Repos\ReclameAcesso\ReclameAcesso\bin\Debug\ReclameAcesso.exe.config
+C:\Users\Thiago\Source\Repos\ReclameAcesso\ReclameAcesso\bin\Debug\ReclameAcesso.exe
+C:\Users\Thiago\Source\Repos\ReclameAcesso\ReclameAcesso\bin\Debug\ReclameAcesso.pdb
+C:\Users\Thiago\Source\Repos\ReclameAcesso\ReclameAcesso\bin\Debug\MySql.Data.dll
+C:\Users\Thiago\Source\Repos\ReclameAcesso\ReclameAcesso\bin\Debug\Google.Protobuf.dll
+C:\Users\Thiago\Source\Repos\ReclameAcesso\ReclameAcesso\bin\Debug\ZstdNet.dll
+C:\Users\Thiago\Source\Repos\ReclameAcesso\ReclameAcesso\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\Thiago\Source\Repos\ReclameAcesso\ReclameAcesso\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Thiago\Source\Repos\ReclameAcesso\ReclameAcesso\bin\Debug\Ubiety.Dns.Core.dll
+C:\Users\Thiago\Source\Repos\ReclameAcesso\ReclameAcesso\bin\Debug\System.Memory.dll
+C:\Users\Thiago\Source\Repos\ReclameAcesso\ReclameAcesso\bin\Debug\System.Buffers.dll
+C:\Users\Thiago\Source\Repos\ReclameAcesso\ReclameAcesso\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\Thiago\Source\Repos\ReclameAcesso\ReclameAcesso\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\Thiago\Source\Repos\ReclameAcesso\ReclameAcesso\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Thiago\Source\Repos\ReclameAcesso\ReclameAcesso\bin\Debug\MySql.Data.xml
+C:\Users\Thiago\Source\Repos\ReclameAcesso\ReclameAcesso\obj\Debug\ReclameAcesso.exe.config
+C:\Users\Thiago\Source\Repos\ReclameAcesso\ReclameAcesso\obj\Debug\ReclameAcesso.ReclameAcesso.resources
+C:\Users\Thiago\Source\Repos\ReclameAcesso\ReclameAcesso\obj\Debug\ReclameAcesso.Properties.Resources.resources
+C:\Users\Thiago\Source\Repos\ReclameAcesso\ReclameAcesso\obj\Debug\ReclameAcesso.csproj.GenerateResource.cache
+C:\Users\Thiago\Source\Repos\ReclameAcesso\ReclameAcesso\obj\Debug\ReclameAcesso.csproj.CoreCompileInputs.cache
+C:\Users\Thiago\Source\Repos\ReclameAcesso\ReclameAcesso\obj\Debug\ReclameAcesso.csproj.CopyComplete
+C:\Users\Thiago\Source\Repos\ReclameAcesso\ReclameAcesso\obj\Debug\ReclameAcesso.exe
+C:\Users\Thiago\Source\Repos\ReclameAcesso\ReclameAcesso\obj\Debug\ReclameAcesso.pdb
+C:\Users\Thiago\Desktop\Projeto Reclame Acesso\ReclameAcesso\ReclameAcesso\bin\Debug\ReclameAcesso.exe.config
+C:\Users\Thiago\Desktop\Projeto Reclame Acesso\ReclameAcesso\ReclameAcesso\bin\Debug\ReclameAcesso.exe
+C:\Users\Thiago\Desktop\Projeto Reclame Acesso\ReclameAcesso\ReclameAcesso\bin\Debug\ReclameAcesso.pdb
+C:\Users\Thiago\Desktop\Projeto Reclame Acesso\ReclameAcesso\ReclameAcesso\bin\Debug\MySql.Data.dll
+C:\Users\Thiago\Desktop\Projeto Reclame Acesso\ReclameAcesso\ReclameAcesso\bin\Debug\Google.Protobuf.dll
+C:\Users\Thiago\Desktop\Projeto Reclame Acesso\ReclameAcesso\ReclameAcesso\bin\Debug\ZstdNet.dll
+C:\Users\Thiago\Desktop\Projeto Reclame Acesso\ReclameAcesso\ReclameAcesso\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\Thiago\Desktop\Projeto Reclame Acesso\ReclameAcesso\ReclameAcesso\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Thiago\Desktop\Projeto Reclame Acesso\ReclameAcesso\ReclameAcesso\bin\Debug\Ubiety.Dns.Core.dll
+C:\Users\Thiago\Desktop\Projeto Reclame Acesso\ReclameAcesso\ReclameAcesso\bin\Debug\System.Memory.dll
+C:\Users\Thiago\Desktop\Projeto Reclame Acesso\ReclameAcesso\ReclameAcesso\bin\Debug\System.Buffers.dll
+C:\Users\Thiago\Desktop\Projeto Reclame Acesso\ReclameAcesso\ReclameAcesso\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\Thiago\Desktop\Projeto Reclame Acesso\ReclameAcesso\ReclameAcesso\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\Thiago\Desktop\Projeto Reclame Acesso\ReclameAcesso\ReclameAcesso\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Thiago\Desktop\Projeto Reclame Acesso\ReclameAcesso\ReclameAcesso\bin\Debug\MySql.Data.xml
+C:\Users\Thiago\Desktop\Projeto Reclame Acesso\ReclameAcesso\ReclameAcesso\obj\Debug\ReclameAcesso.csproj.AssemblyReference.cache
+C:\Users\Thiago\Desktop\Projeto Reclame Acesso\ReclameAcesso\ReclameAcesso\obj\Debug\ReclameAcesso.exe.config
+C:\Users\Thiago\Desktop\Projeto Reclame Acesso\ReclameAcesso\ReclameAcesso\obj\Debug\ReclameAcesso.ReclameAcesso.resources
+C:\Users\Thiago\Desktop\Projeto Reclame Acesso\ReclameAcesso\ReclameAcesso\obj\Debug\ReclameAcesso.Properties.Resources.resources
+C:\Users\Thiago\Desktop\Projeto Reclame Acesso\ReclameAcesso\ReclameAcesso\obj\Debug\ReclameAcesso.csproj.GenerateResource.cache
+C:\Users\Thiago\Desktop\Projeto Reclame Acesso\ReclameAcesso\ReclameAcesso\obj\Debug\ReclameAcesso.csproj.CoreCompileInputs.cache
+C:\Users\Thiago\Desktop\Projeto Reclame Acesso\ReclameAcesso\ReclameAcesso\obj\Debug\ReclameAcesso.csproj.CopyComplete
+C:\Users\Thiago\Desktop\Projeto Reclame Acesso\ReclameAcesso\ReclameAcesso\obj\Debug\ReclameAcesso.exe
+C:\Users\Thiago\Desktop\Projeto Reclame Acesso\ReclameAcesso\ReclameAcesso\obj\Debug\ReclameAcesso.pdb
+C:\Users\Thiago\source\repos\ReclameAcesso\ReclameAcesso\obj\Debug\ReclameAcesso.csproj.AssemblyReference.cache

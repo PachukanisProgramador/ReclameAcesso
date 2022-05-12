@@ -1,4 +1,4 @@
-﻿using ReclameAcesso.Objetos;
+﻿using ReclameAcesso.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +9,7 @@ namespace ReclameAcesso.Interfaces
 {
     interface ITiposNecessidadesTabela
     {
-        List<TiposNecessidades> LerDados();
-        void Inserir(TiposNecessidades novoTipoNecessidade);
-        void Atualizar(string campo, string novoDado, TiposNecessidades tipoNecessidade);
-        void Deletar(TiposNecessidades tipoNecessidade);
-        void Consultar(TiposNecessidades TiposNecessidades);
-        void ConsultarIndividual(TiposNecessidades tipoNecessidade, string id, string idValor);
-
+        void Inserir(List<Tabela> novaTabela);
+        List<TiposNecessidades> Select();
     }
 }

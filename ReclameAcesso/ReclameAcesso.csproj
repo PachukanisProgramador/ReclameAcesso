@@ -47,7 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dao.cs" />
+    <Compile Include="Controls\Dao.cs" />
+    <Compile Include="Factories\TabelaFactory.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,20 +59,22 @@
     <Compile Include="Interfaces\IInstituicoesTabela.cs" />
     <Compile Include="Interfaces\IMidiaTabela.cs" />
     <Compile Include="Interfaces\IReclamacoesTabela.cs" />
+    <Compile Include="Interfaces\ITabela.cs" />
     <Compile Include="Interfaces\ITiposNecessidadesTabela.cs" />
     <Compile Include="Interfaces\IUsuariosTabela.cs" />
-    <Compile Include="Objetos\Instituicoes.cs" />
-    <Compile Include="Objetos\Midia.cs" />
-    <Compile Include="Objetos\Reclamacoes.cs" />
-    <Compile Include="Objetos\TiposNecessidades.cs" />
-    <Compile Include="Objetos\Usuarios.cs" />
+    <Compile Include="Models\Instituicoes.cs" />
+    <Compile Include="Models\Midia.cs" />
+    <Compile Include="Models\Reclamacoes.cs" />
+    <Compile Include="Models\Tabela.cs" />
+    <Compile Include="Models\TiposNecessidades.cs" />
+    <Compile Include="Models\Usuarios.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tabelas\InstituicoesTabela.cs" />
-    <Compile Include="Tabelas\MidiaTabela.cs" />
-    <Compile Include="Tabelas\ReclamacoesTabela.cs" />
-    <Compile Include="Tabelas\TiposNecessidadesTabela.cs" />
-    <Compile Include="Tabelas\UsuariosTabela.cs" />
+    <Compile Include="Controls\InstituicoesTabela.cs" />
+    <Compile Include="Controls\MidiaTabela.cs" />
+    <Compile Include="Controls\ReclamacoesTabela.cs" />
+    <Compile Include="Controls\TiposNecessidadesTabela.cs" />
+    <Compile Include="Controls\UsuariosTabela.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

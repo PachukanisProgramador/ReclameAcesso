@@ -1,16 +1,14 @@
-﻿using ReclameAcesso.Objetos;
+﻿using ReclameAcesso.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ReclameAcesso.Tabelas
+namespace ReclameAcesso.Interfaces
 {
-    class ReclamacoesTabela : Reclamacoes
+    interface ITabela
     {
-
-
-
+        List<string> LerColunas();
     }
 }

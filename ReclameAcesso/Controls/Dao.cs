@@ -1,5 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
+using ReclameAcesso.Factories;
 using ReclameAcesso.Interfaces;
+using ReclameAcesso.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,16 +9,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ReclameAcesso
+namespace ReclameAcesso.Controls
 {
-    class Dao : IDao
+    public abstract class Dao : IDao
     {
 
         public MySqlCommand comando;
         public MySqlTransaction transacao;
         public MySqlConnection conexao;
         public MySqlDataReader leitura;
+
         public System.Data.ConnectionState estadoConexao;
+
         public Dao()
         {
             try
@@ -76,5 +80,7 @@ namespace ReclameAcesso
         {
             return $"SELECT * from {nomeTabela} WHERE {id} = '{idValor}'";
         }
+
     }
 }
+
