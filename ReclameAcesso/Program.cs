@@ -16,7 +16,7 @@ namespace ReclameAcesso
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ReclameAcesso());
+            Application.Run(new PaginaInicial());
         }
     }
 }

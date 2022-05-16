@@ -7,26 +7,17 @@ using System.Threading.Tasks;
 
 namespace ReclameAcesso.Models
 {
-    public class Midia : Tabela, ITabela
+    public class Midia : Tabela
     {
 
         public int IdMidia { get; set; }
         public byte[] ArquivoMidia { get; set; }
-        public int IdUsuario { get; set; }
+        public int IdUsuarios { get; set; }
+        public string CaminhoMidia { get; set; }
 
-        public Midia() : base("midia", "idMidia, arquivomidia, idUsuarios", "'', @ArquivoMidia, @IdUsuarios")
+        public Midia() : base("midia", "idMidia, arquivomidia, idUsuarios, caminhoMidia", "'', @ArquivoMidia, @IdUsuarios, @CaminhoMidia")
         {
-            //DataReader GetBytes();
+
         }
-
-        public List<string> LerColunas()
-        {
-            Colunas = new List<string>();
-            Colunas.Add("@IdMidia");
-            Colunas.Add("@ArquivoMidia");
-
-            return Colunas;
-        }
-
     }
 }

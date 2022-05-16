@@ -12,6 +12,7 @@ namespace ReclameAcesso.Interfaces
 
         byte[] CarregarMidia(string caminhoMidia);
         void Inserir(byte[] midiaData, int usuarioId);
+        List<Midia> Select();
 
     }
 }

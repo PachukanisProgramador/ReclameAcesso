@@ -8,9 +8,8 @@ using System.Threading.Tasks;
 namespace ReclameAcesso.Interfaces
 {
     interface IUsuariosTabela
-    {      
+    {
         int Inserir(Usuarios novoUsuario);
-        List<Tabela> Select();
-        Usuarios ConsultarIdUsuarios(List<Tabela> ListaUsuario, string idValor);
+        Usuarios SelectLinha(int idValor);
     }
 }

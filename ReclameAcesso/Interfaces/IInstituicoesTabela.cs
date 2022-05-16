@@ -9,6 +9,6 @@ namespace ReclameAcesso.Interfaces
 {
     interface IInstituicoesTabela
     {
-
+        List<Instituicoes> Select();
     }
 }

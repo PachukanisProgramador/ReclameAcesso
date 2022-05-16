@@ -14,48 +14,13 @@ namespace ReclameAcesso.Controls
     public class InstituicoesTabela : Dao, IInstituicoesTabela
     {
         Instituicoes instituicao;
-        TabelaFactory tabelaFactory;
-
-        ITabela getTabela;
-
         public InstituicoesTabela()
         {
             instituicao = new Instituicoes();
-
-            tabelaFactory = new TabelaFactory();
-
-            getTabela = tabelaFactory.GetTabela("instituicoes");
         }
 
 
 
-
-
-        public void Inserir(List<Tabela> novaTabela)
-        {
-
-            try
-            {
-                using (comando = new MySqlCommand(instituicao.ComandoInserir, conexao))
-                {
-
-                    foreach (Instituicoes novaInstituicao in novaTabela)
-                    {
-                        comando.Parameters.AddWithValue("@Nome", novaInstituicao.Nome); ;
-                        comando.Parameters.AddWithValue("@Endereco", novaInstituicao.Endereco);
-                        comando.Parameters.AddWithValue("@Email", novaInstituicao.Email);
-                    }
-                }
-            }
-            catch (MySqlException e)
-            {
-                MessageBox.Show($"Erro.\n\nNada foi inserido em Instituições.\n\n {e}", "Ops!", instituicao.BotaoOk);
-            }
-            finally
-            {
-                ComandoChecarConexaoAberta();
-            }
-        }
 
 
         public List<Instituicoes> Select()
@@ -72,13 +37,16 @@ namespace ReclameAcesso.Controls
 
                     while (leitura.Read())
                     {
-                        Instituicoes instituicaoConsultada = new Instituicoes();
+                        Instituicoes instituicaoConsultada = new Instituicoes()
+                        {
+                            IdInstituicoes = leitura.GetInt32("idInstituicoes"),
+                            Nome = leitura.GetString("nome"),
+                            Endereco = leitura.GetString("endereco"),
+                            Email = leitura.GetString("email"),
+                            IdTipoNecessidade = leitura.GetInt32("idTiposNecessidades")
+                        };
 
-                        instituicaoConsultada.IdInstituicoes = leitura.GetInt32("idInstituicoes");
-                        instituicaoConsultada.Nome = leitura.GetString("nome");
-                        instituicaoConsultada.Endereco = leitura.GetString("endereco");
-                        instituicaoConsultada.Email = leitura.GetString("email");
-                        instituicaoConsultada.IdTipoNecessidade = leitura.GetInt32("idTiposNecessidades");
+
 
                         listaInstituicoes.Add(instituicaoConsultada);
                     }
@@ -87,7 +55,7 @@ namespace ReclameAcesso.Controls
             catch (MySqlException e)
             {
 
-                MessageBox.Show($"Erro.\n\nNada foi procurado em Instituições.\n\n{e}", "Ops!", instituicao.BotaoOk);
+                MessageBox.Show($"Erro.\n\nNada foi procurado em Instituições.\n\n{e}", "Ops!", MessageBoxButtons.OK);
             }
             finally
             {

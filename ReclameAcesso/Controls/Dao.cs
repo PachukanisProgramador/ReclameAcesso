@@ -14,12 +14,12 @@ namespace ReclameAcesso.Controls
     public abstract class Dao : IDao
     {
 
-        public MySqlCommand comando;
-        public MySqlTransaction transacao;
-        public MySqlConnection conexao;
-        public MySqlDataReader leitura;
+        protected MySqlCommand comando;
+        protected MySqlTransaction transacao;
+        protected MySqlConnection conexao;
+        protected MySqlDataReader leitura;
 
-        public System.Data.ConnectionState estadoConexao;
+        protected System.Data.ConnectionState estadoConexao;
 
         public Dao()
         {
@@ -43,11 +43,19 @@ namespace ReclameAcesso.Controls
 
         }
 
+
+
+
+
         public void ComandoDBConectar()
         {
             conexao = new MySqlConnection("Server=localhost;Database=reclameAcessoNovo;Uid=root;Pwd=myPassword;");
             conexao.Open();
         }
+
+
+
+
 
         public void ComandoChecarConexaoAberta()
         {
@@ -57,6 +65,10 @@ namespace ReclameAcesso.Controls
             }
         }
 
+
+
+
+
         public void ComandoChecarConexaoFechada()
         {
             if (estadoConexao == System.Data.ConnectionState.Closed)
@@ -65,22 +77,15 @@ namespace ReclameAcesso.Controls
             }
         }
 
+
+
+
+
         public void ComandoDBIniciarTransacaoILCommited()
         {
             transacao = conexao.BeginTransaction(System.Data.IsolationLevel.ReadCommitted);
             comando.Transaction = transacao;
         }
-
-        public string ComandoDBSelecionarTudo(string nomeTabela)
-        {
-            return $"SELECT * from {nomeTabela}";
-        }
-
-        public string ComandoDBSelecionarLinha(string nomeTabela, string id, string idValor)
-        {
-            return $"SELECT * from {nomeTabela} WHERE {id} = '{idValor}'";
-        }
-
     }
 }
 

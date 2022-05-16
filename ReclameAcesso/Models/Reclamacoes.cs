@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ReclameAcesso.Models
 {
-    public class Reclamacoes : Tabela, ITabela
+    public class Reclamacoes : Tabela
     {
 
         public int IdReclamacoes { get; set; }
@@ -16,25 +16,11 @@ namespace ReclameAcesso.Models
         public bool DanoSofrido { get; set; }
         public long CnpjInstituicao { get; set; }
         public int IdUsuarios { get; set; }
-        public int IdMidia { get; set; }
-        public int TipoNecessidade { get; set; }
+        public int IdTipoNecessidade { get; set; }
 
-        public Reclamacoes() : base("reclamacoes", "IdReclamacoes, Texto, TituloTexto, DanoSofrido, CnpjInstituicao, IdUsuarios, TipoNecessidade", "'', @Texto, @TituloTexto, @DanoSofrido, @CnpjInstituicao, @IdUsuarios, @TipoNecessidade")
+        public Reclamacoes() : base("reclamacoes", "IdReclamacoes, Texto, TituloTexto, DanoSofrido, CnpjInstituicao, IdUsuarios, IdTipoNecessidade", "'', @Texto, @TituloTexto, @DanoSofrido, @CnpjInstituicao, @IdUsuarios, @IdTipoNecessidade")
         {
 
-        }
-
-        public List<string> LerColunas()
-        {
-            Colunas = new List<string>();
-            Colunas.Add("@IdReclamacoes");
-            Colunas.Add("@Texto");
-            Colunas.Add("@TituloTexto");
-            Colunas.Add("@DanoSofrido");
-            Colunas.Add("@CnpjInstituicaoReclamada");
-            Colunas.Add("@IdUsuarios");
-
-            return Colunas;
         }
     }
 }

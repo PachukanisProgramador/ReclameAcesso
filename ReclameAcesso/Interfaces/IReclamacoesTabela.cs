@@ -10,5 +10,6 @@ namespace ReclameAcesso.Interfaces
     interface IReclamacoesTabela
     {
         void Inserir(Reclamacoes novaReclamacao, int usuarioId);
+        Reclamacoes SelectLinha(int idValor);
     }
 }

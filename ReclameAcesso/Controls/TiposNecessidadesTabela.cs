@@ -12,36 +12,16 @@ namespace ReclameAcesso.Controls
 {
     public class TiposNecessidadesTabela : Dao, ITiposNecessidadesTabela
     {
-        TiposNecessidades tipoNecessidade;
+        TiposNecessidades tiposNecessidades;
+
         public TiposNecessidadesTabela()
         {
-            tipoNecessidade = new TiposNecessidades();
+            tiposNecessidades = new TiposNecessidades();
         }
 
-        public void Inserir(List<Tabela> novaTabela)
-        {
-            try
-            {
-                using (comando = new MySqlCommand(tipoNecessidade.ComandoInserir, conexao))
-                {
-                    foreach (TiposNecessidades novoTipoNecessidade in novaTabela)
-                    {
-                        ComandoDBIniciarTransacaoILCommited();
 
-                        comando.Parameters.AddWithValue("@tipoNecessidade", novoTipoNecessidade.TipoNecessidade);
 
-                        comando.ExecuteNonQuery();
-                        transacao.Commit();
-                    }
 
-                }
-            }
-            catch (MySqlException e)
-            {
-
-                throw;
-            }
-        }
 
         public List<TiposNecessidades> Select()
         {
@@ -50,23 +30,26 @@ namespace ReclameAcesso.Controls
             try
             {
 
-                using (comando = new MySqlCommand(ComandoDBSelecionarTudo("Tiposnecessidades"), conexao))
+                using (comando = new MySqlCommand(tiposNecessidades.ComandoSelect, conexao))
                 {
                     comando.ExecuteNonQuery();
                     leitura = comando.ExecuteReader();
 
                     while (leitura.Read())
                     {
-                        TiposNecessidades tiponecessidade = new TiposNecessidades();
-                        tiponecessidade.TipoNecessidade = leitura.GetString("tipoNecessidade");
+                        TiposNecessidades tipoNecessidade = new TiposNecessidades()
+                        {
+                            IdTiposNecessidades = leitura.GetInt32("IdTiposNecessidades"),
+                            TipoNecessidade = leitura.GetString("tipoNecessidade")
+                        };
 
-                        ListaTiposnecessidades.Add(tiponecessidade);
+                        ListaTiposnecessidades.Add(tipoNecessidade);
                     }
                 }
             }
-            catch (MySqlException e)
+            catch (MySqlException erro)
             {
-                MessageBox.Show("Erro.\n\nNada foi procurado.", "Ops!", tipoNecessidade.BotaoOk);
+                MessageBox.Show($"Erro.\n\nNada foi procurado.\n\n{erro.Message}", "Ops!", MessageBoxButtons.OK);
             }
             finally
             {

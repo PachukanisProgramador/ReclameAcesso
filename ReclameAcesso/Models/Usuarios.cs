@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ReclameAcesso.Models
 {
-    public class Usuarios : Tabela, ITabela
+    public class Usuarios : Tabela
     {
 
         public int IdUsuarios { get; set; }
@@ -18,16 +18,6 @@ namespace ReclameAcesso.Models
         public Usuarios() : base("usuarios", "IdUsuarios, Nome, Email", "'', @Nome, @Email")
         {
 
-        }
-
-        public List<string> LerColunas()
-        {
-            Colunas = new List<string>();
-            Colunas.Add("@IdUsuarios");
-            Colunas.Add("@Nome");
-            Colunas.Add("@Email");
-
-            return Colunas;
         }
     }
 }

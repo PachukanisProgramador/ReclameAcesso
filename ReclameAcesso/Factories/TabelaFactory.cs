@@ -10,28 +10,28 @@ namespace ReclameAcesso.Factories
 {
     class TabelaFactory
     {
-        public ITabela GetTabela(string nomeTabela)
-        {
-            switch (nomeTabela.ToLower())
-            {
-                case "instituicoes":
-                    return new Instituicoes();
+        //public ITabela GetTabela(string nomeTabela)
+        //{
+        //    switch (nomeTabela.ToLower())
+        //    {
+        //        case "instituicoes":
+        //            return new Instituicoes();
 
-                case "usuarios":
-                    return new Usuarios();
+        //        case "usuarios":
+        //            return new Usuarios();
 
-                case "reclamacoes":
-                    return new Reclamacoes();
+        //        case "reclamacoes":
+        //            return new Reclamacoes();
 
-                case "midia":
-                    return new Midia();
+        //        case "midia":
+        //            return new Midia();
 
-                case "tiposnecessidades":
-                    return new TiposNecessidades();
+        //        case "tiposnecessidades":
+        //            return new TiposNecessidades();
 
-                default:
-                    return null;
-            }
-        }
+        //        default:
+        //            return null;
+        //    }
+        //}
     }
 }

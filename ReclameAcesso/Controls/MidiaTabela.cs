@@ -16,12 +16,14 @@ namespace ReclameAcesso.Controls
 
         Midia midia;
 
-        public int IdUsuario { get; set; }
-
         public MidiaTabela()
         {
             midia = new Midia();
         }
+
+
+
+
 
         public byte[] CarregarMidia(string caminhoMidia)
         {
@@ -44,11 +46,12 @@ namespace ReclameAcesso.Controls
             return midiaData;
         }
 
-        public void Inserir(byte[] midiaData, int usuarioId)
-        {
 
-            UsuariosTabela usuarioTabela = new UsuariosTabela();
-            ReclamacoesTabela reclamacaoTabela = new ReclamacoesTabela();
+
+
+
+        public void Inserir(byte[] midiaData, int usuarioId, string caminhoMidia)
+        {
 
             try
             {
@@ -58,14 +61,15 @@ namespace ReclameAcesso.Controls
                 }
                 else
                 {
-                    using (comando = new MySqlCommand($"INSERT INTO midia (IdMidia, ArquivoMidia, IdUsuarios) VALUES ('', @ArquivoMidia, @IdUsuarios); SELECT last_insert_id()", conexao, transacao))
+                    using (comando = new MySqlCommand(midia.ComandoInserir + "; SELECT last_insert_id()", conexao, transacao))
                     {
                         ComandoDBIniciarTransacaoILCommited();
 
                         comando.Parameters.Add(new MySqlParameter("@ArquivoMidia", midiaData));
                         comando.Parameters.AddWithValue("@IdUsuarios", usuarioId);
+                        comando.Parameters.AddWithValue("@CaminhoMidia", caminhoMidia);
 
-                        reclamacaoTabela.IdMidia = Convert.ToInt32(comando.ExecuteScalar());
+                        comando.ExecuteNonQuery();
                         transacao.Commit();
 
                     }
@@ -76,7 +80,7 @@ namespace ReclameAcesso.Controls
             {
 
                 transacao.Rollback();
-                MessageBox.Show($"Erro.\n\nNada foi inserido em Midia.\n\n{e}", "Ops!", midia.BotaoOk);
+                MessageBox.Show($"Erro.\n\nNada foi inserido em Midia.\n\n{e}", "Ops!", MessageBoxButtons.OK);
 
             }
             finally
@@ -85,12 +89,16 @@ namespace ReclameAcesso.Controls
             }
         }
 
+
+
+
+
         public List<Midia> Select()
         {
             List<Midia> ListaMidia = new List<Midia>();
             try
             {
-                using (comando = new MySqlCommand(ComandoDBSelecionarTudo("midia"), conexao))
+                using (comando = new MySqlCommand(midia.ComandoSelect, conexao))
                 {
                     comando.ExecuteNonQuery();
                     leitura = comando.ExecuteReader();
@@ -100,7 +108,9 @@ namespace ReclameAcesso.Controls
                         Midia midiaConsultada = new Midia
                         {
 
-                            IdMidia = leitura.GetInt32("IdMidia")
+                            IdMidia = leitura.GetInt32("IdMidia"),
+                            IdUsuarios = leitura.GetInt32("IdUsuarios"),
+                            CaminhoMidia = leitura.GetString("CaminhoMidia")
                         };
                         ListaMidia.Add(midiaConsultada);
                     }
@@ -108,7 +118,7 @@ namespace ReclameAcesso.Controls
             }
             catch (MySqlException e)
             {
-                MessageBox.Show($"Erro.\n\nNada foi consultado em Midia.\n\n{e}", "Ops!", midia.BotaoOk);
+                MessageBox.Show($"Erro.\n\nNada foi consultado em Midia.\n\n{e}", "Ops!", MessageBoxButtons.OK);
             }
             finally
             {

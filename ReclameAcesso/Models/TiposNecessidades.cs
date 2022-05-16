@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ReclameAcesso.Models
 {
-    public class TiposNecessidades : Tabela, ITabela
+    public class TiposNecessidades : Tabela
     {
 
         public int IdTiposNecessidades { get; set; }
@@ -16,15 +16,6 @@ namespace ReclameAcesso.Models
         public TiposNecessidades() : base("tiposnecessidades", "IdTiposNecessidades, tipoNecessidade", "'', @tipoNecessidade")
         {
 
-        }
-
-        public List<string> LerColunas()
-        {
-            Colunas = new List<string>();
-            Colunas.Add("@IdTiposnicessidades");
-            Colunas.Add("@tipoNecessidade");
-
-            return Colunas;
         }
     }
 }

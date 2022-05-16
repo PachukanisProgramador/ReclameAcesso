@@ -70,3 +70,4 @@ C:\Users\Thiago\Desktop\Projeto Reclame Acesso\ReclameAcesso\ReclameAcesso\obj\D
 C:\Users\Thiago\Desktop\Projeto Reclame Acesso\ReclameAcesso\ReclameAcesso\obj\Debug\ReclameAcesso.exe
 C:\Users\Thiago\Desktop\Projeto Reclame Acesso\ReclameAcesso\ReclameAcesso\obj\Debug\ReclameAcesso.pdb
 C:\Users\Thiago\source\repos\ReclameAcesso\ReclameAcesso\obj\Debug\ReclameAcesso.csproj.AssemblyReference.cache
+C:\Users\Thiago\source\repos\ReclameAcesso\ReclameAcesso\obj\Debug\ReclameAcesso.PaginaInicial.resources

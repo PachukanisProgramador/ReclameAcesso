@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ReclameAcesso.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,12 +11,9 @@ namespace ReclameAcesso.Interfaces
     {
 
         void ComandoDBConectar();
-        void ComandoDBIniciarTransacaoILCommited();
-        string ComandoDBSelecionarTudo(string nomeTabela);
-        string ComandoDBSelecionarLinha(string nomeTabela, string id, string idValor);
-        //void ComandoDBJuntarTabelas();
         void ComandoChecarConexaoAberta();
         void ComandoChecarConexaoFechada();
+        void ComandoDBIniciarTransacaoILCommited();
 
     }
 }

@@ -13,17 +13,18 @@ namespace ReclameAcesso.Controls
     public class ReclamacoesTabela : Dao, IReclamacoesTabela
     {
         Reclamacoes reclamacao;
-        public int IdMidia { get; set; }
 
         public ReclamacoesTabela()
         {
             reclamacao = new Reclamacoes();
         }
 
+
+
+
+
         public void Inserir(Reclamacoes novaReclamacao, int usuarioId)
         {
-            MidiaTabela midiaTabela = new MidiaTabela();
-
             try
             {
                 if (novaReclamacao == null)
@@ -41,7 +42,7 @@ namespace ReclameAcesso.Controls
                         comando.Parameters.AddWithValue("@DanoSofrido", Convert.ToByte(novaReclamacao.DanoSofrido));
                         comando.Parameters.AddWithValue("@CnpjInstituicao", novaReclamacao.CnpjInstituicao);
                         comando.Parameters.AddWithValue("@IdUsuarios", usuarioId);
-                        comando.Parameters.AddWithValue("@TipoNecessidade", novaReclamacao.TipoNecessidade);
+                        comando.Parameters.AddWithValue("@IdTipoNecessidade", novaReclamacao.IdTipoNecessidade);
 
                         comando.ExecuteNonQuery();
                         transacao.Commit();
@@ -53,7 +54,7 @@ namespace ReclameAcesso.Controls
             {
 
                 transacao.Rollback();
-                MessageBox.Show($"Erro.\n\nNada foi inserido em ReclamacoesTabela.\n\n{e}", "Ops!", reclamacao.BotaoOk);
+                MessageBox.Show($"Erro.\n\nNada foi inserido em ReclamacoesTabela.\n\n{e}", "Ops!", MessageBoxButtons.OK);
             }
             finally
             {
@@ -61,38 +62,44 @@ namespace ReclameAcesso.Controls
             }
         }
 
-        public List<Reclamacoes> Select()
+
+
+
+
+        public Reclamacoes SelectLinha(int idValor)
         {
-            List<Reclamacoes> ListaReclamacoes = new List<Reclamacoes>();
+            Reclamacoes reclamacao = new Reclamacoes();
 
             try
             {
-                using (comando = new MySqlCommand(ComandoDBSelecionarTudo("reclamacoes"), conexao))
+                using (comando = new MySqlCommand($"SELECT * FROM Reclamacoes WHERE idUsuarios = '{idValor}'", conexao))
                 {
                     comando.ExecuteNonQuery();
                     leitura = comando.ExecuteReader();
 
                     while (leitura.Read())
                     {
-                        Reclamacoes reclamacaoConsultada = new Reclamacoes();
-                        reclamacaoConsultada.Texto = leitura.GetString("texto");
-                        reclamacaoConsultada.TituloTexto = leitura.GetString("tituloTexto");
-                        reclamacaoConsultada.DanoSofrido = leitura.GetBoolean("danoSofrido");
-                        reclamacaoConsultada.CnpjInstituicao = (long)leitura.GetDouble("CnpjInstituicaoReclamada");
+                        reclamacao.IdReclamacoes = leitura.GetInt32("idReclamacoes");
+                        reclamacao.Texto = leitura.GetString("texto");
+                        reclamacao.TituloTexto = leitura.GetString("tituloTexto");
+                        reclamacao.DanoSofrido = leitura.GetBoolean("danoSofrido");
+                        reclamacao.CnpjInstituicao = (long)leitura.GetDouble("CnpjInstituicao");
+                        reclamacao.IdUsuarios = leitura.GetInt32("idusuarios");
+                        reclamacao.IdTipoNecessidade = leitura.GetInt32("idTipoNecessidade");
                     }
                 }
+
             }
-            catch (MySqlException e)
+            catch (Exception erro)
             {
-                transacao.Rollback();
-                MessageBox.Show($"Erro.\n\nNada foi cconsultado em Reclamacoes.\n\n{e}", "Ops!", reclamacao.BotaoOk);
+
+                MessageBox.Show($"Erro ao ler reclamacoes.\n\n{erro.Message}", "Ops!", MessageBoxButtons.OK);
             }
             finally
             {
                 ComandoChecarConexaoAberta();
             }
-            return ListaReclamacoes;
+            return reclamacao;
         }
-
     }
 }

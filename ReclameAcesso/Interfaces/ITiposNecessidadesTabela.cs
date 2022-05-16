@@ -9,7 +9,6 @@ namespace ReclameAcesso.Interfaces
 {
     interface ITiposNecessidadesTabela
     {
-        void Inserir(List<Tabela> novaTabela);
         List<TiposNecessidades> Select();
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ReclameAcesso.Models
 {
-    public class Instituicoes : Tabela, ITabela
+    public class Instituicoes : Tabela
     {
 
         public int IdInstituicoes { get; set; }
@@ -20,25 +20,6 @@ namespace ReclameAcesso.Models
         public Instituicoes() : base("Instituicoes", "IdInstituicoes, Nome, Endereco, Email, idTiposNecessidades", "'', @Nome, @Endereco, @Email, @IdTiposNecessidades")
         {
 
-        }
-
-        public List<string> LerColunas()
-        {
-            Colunas = new List<string>();
-            Colunas.Add("@Nome");
-            Colunas.Add("@Endereco");
-            Colunas.Add("@Email");
-
-
-
-            return Colunas;
-        }
-
-        public List<Instituicoes> LerDados()
-        {
-            List<Instituicoes> instituicao = new List<Instituicoes>();
-
-            return instituicao;
         }
     }
 }
