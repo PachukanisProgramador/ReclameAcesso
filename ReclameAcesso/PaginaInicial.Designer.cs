@@ -163,7 +163,7 @@ namespace ReclameAcesso
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1560, 800);
             this.Name = "PaginaInicial";
-            this.Text = "PaginaInicial";
+            this.Text = "Reclame Acesso";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);

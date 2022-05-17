@@ -14,6 +14,8 @@ namespace ReclameAcesso.Controls
     {
 
         private string DanoSofrido { get; set; }
+        private string EmailRemetente { get; set; }
+        private string SenhaRemetente { get; set; }
 
         ReclamacoesTabela reclamacaoTabela;
         MidiaTabela midiaTabela;
@@ -26,6 +28,9 @@ namespace ReclameAcesso.Controls
             reclamacaoTabela = new ReclamacoesTabela();
             usuariosTabela = new UsuariosTabela();
             midiaTabela = new MidiaTabela();
+
+            EmailRemetente = "reclameacesso@gmail.com";
+            SenhaRemetente = "RA@@1515";
         }
 
 
@@ -56,12 +61,12 @@ namespace ReclameAcesso.Controls
                 {
                     UseDefaultCredentials = false,
                     Timeout = 3600000,
-                    Credentials = new NetworkCredential("email.example@example.com", "password"), //Necessário informar endereço e senha do e-mail remetente.
+                    Credentials = new NetworkCredential(EmailRemetente, SenhaRemetente), //Necessário informar endereço e senha do e-mail remetente.
                     EnableSsl = true
                 };
 
 
-                mensagemEmail = new MailMessage("thilutten@gmail.com", usuario.Email)
+                mensagemEmail = new MailMessage(EmailRemetente, usuario.Email)
                 {
                     SubjectEncoding = Encoding.GetEncoding("UTF-8"),
                     BodyEncoding = Encoding.GetEncoding("UTF-8"),

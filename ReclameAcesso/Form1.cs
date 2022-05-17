@@ -120,10 +120,6 @@ namespace ReclameAcesso
             {
                 MessageBox.Show($"Erro.\n\nForms1.\n\n{erro}", "Ops!", MessageBoxButtons.OK);
             }
-            finally
-            {
-                //ArmazenarListaReclamacao(ArmazenarDadosReclamacao(idUsuario, idMidia)).Clear();
-            }
 
         }
 
