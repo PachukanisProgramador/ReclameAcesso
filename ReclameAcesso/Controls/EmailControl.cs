@@ -29,7 +29,7 @@ namespace ReclameAcesso.Controls
             usuariosTabela = new UsuariosTabela();
             midiaTabela = new MidiaTabela();
 
-            EmailRemetente = "email.email@gmail.com"; // Write your e-mail adress (you need to enable less secure app acess in your gmail);
+            EmailRemetente = "email.email@gmail.com"; // Write your e-mail adress (you need to enable less secure app acess in your gmail configuration panel);
             SenhaRemetente = "password"; // Write your e-mail password;
         }
 
