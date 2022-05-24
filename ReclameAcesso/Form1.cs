@@ -67,53 +67,68 @@ namespace ReclameAcesso
             ReclamacoesTabela reclamacaoTabela = new ReclamacoesTabela();
             MidiaTabela midiaTabela = new MidiaTabela();
 
+            var emailValidacao = EmailTextBox.Text.Trim();
+            string validador = "!,#,$,%,¨,&,*";
+
             try
             {
-                if (ArmazenarDadosUsuario() == null || ArmazenarDadosReclamacao() == null)
+                if (emailValidacao.Contains("@") != true || emailValidacao.EndsWith(".") == true || emailValidacao.Contains(String.Concat(",", validador)) == true)
                 {
-                    MessageBox.Show("Insira um valor nos campos obrigatório", "Ops!", MessageBoxButtons.OK);
+                    MessageBox.Show("Insira um e-mail válido", "Ops!", MessageBoxButtons.OK);
+
+                    EmailTextBox.BackColor = Color.FromArgb(187, 31, 12);
                 }
                 else
                 {
-                    UsuarioId = usuarioTabela.Inserir(ArmazenarDadosUsuario());
-
-                    if (CaminhoMidia1TextBox.Text != "Caminho...")
+                    if (ArmazenarDadosUsuario() == null || ArmazenarDadosReclamacao() == null)
                     {
-                        midiaTabela.Inserir(midiaTabela.CarregarMidia(CaminhoMidia1TextBox.Text), UsuarioId, CaminhoMidia1TextBox.Text);
+                        MessageBox.Show("Insira um valor válido nos campos obrigatórios", "Ops!", MessageBoxButtons.OK);
                     }
-                    if (CaminhoMidia2TextBox.Text != "Caminho...")
+                    else
                     {
-                        midiaTabela.Inserir(midiaTabela.CarregarMidia(CaminhoMidia2TextBox.Text), UsuarioId, CaminhoMidia2TextBox.Text);
+
+                        UsuarioId = usuarioTabela.Inserir(ArmazenarDadosUsuario());
+
+                        if (CaminhoMidia1TextBox.Text != "Caminho...")
+                        {
+                            midiaTabela.Inserir(midiaTabela.CarregarMidia(CaminhoMidia1TextBox.Text), UsuarioId, CaminhoMidia1TextBox.Text);
+                        }
+                        if (CaminhoMidia2TextBox.Text != "Caminho...")
+                        {
+                            midiaTabela.Inserir(midiaTabela.CarregarMidia(CaminhoMidia2TextBox.Text), UsuarioId, CaminhoMidia2TextBox.Text);
+                        }
+                        if (CaminhoMidia3TextBox.Text != "Caminho...")
+                        {
+                            midiaTabela.Inserir(midiaTabela.CarregarMidia(CaminhoMidia3TextBox.Text), UsuarioId, CaminhoMidia3TextBox.Text);
+                        }
+
+                        reclamacaoTabela.Inserir(ArmazenarDadosReclamacao(), UsuarioId);
+
+                        string resultado = RelacaoInstituicoes(ArmazenarDadosReclamacao());
+                        EmailControl emailControl = new EmailControl();
+
+                        emailControl.EnviarEmail(UsuarioId);
+
+                        NomeTextBox.Text = "Insira o seu nome";
+                        EmailTextBox.Text = "Insira o seu e-mail";
+                        TituloTextoTextBox.Text = "Insira o título do seu texto*";
+                        TextoTextBox.Text = "Escreva um texto com no máximo 5.000 caracteres.*";
+                        CaminhoMidia1TextBox.Clear();
+                        CaminhoMidia2TextBox.Clear();
+                        CaminhoMidia3TextBox.Clear();
+                        DanosCheckBox.Checked = false;
+                        ValidacaoNome = false;
+                        ValidacaoEmail = false;
+                        ValidacaoTituloTexto = false;
+                        ValidacaoTexto = false;
+                        TipoNecessidadeComboBox.SelectedIndex = -1;
+                        SelecionarMidiaBotao.BackColor = Color.FromArgb(150, 180, 200, 210);
+                        CnpjInstituicaoMaskedTextBox.Text = "";
+
+                        MessageBox.Show($"Seu relato foi enviado para as seguintes instituições:\n\n{resultado}\n\nAguarde uma resposta em seu e-mail!");
+
+
                     }
-                    if (CaminhoMidia3TextBox.Text != "Caminho...")
-                    {
-                        midiaTabela.Inserir(midiaTabela.CarregarMidia(CaminhoMidia3TextBox.Text), UsuarioId, CaminhoMidia3TextBox.Text);
-                    }
-
-                    reclamacaoTabela.Inserir(ArmazenarDadosReclamacao(), UsuarioId);
-
-                    string resultado = RelacaoInstituicoes(ArmazenarDadosReclamacao());
-
-                    NomeTextBox.Clear();
-                    EmailTextBox.Clear();
-                    TituloTextoTextBox.Clear();
-                    TextoTextBox.Clear();
-                    CaminhoMidia1TextBox.Clear();
-                    CaminhoMidia2TextBox.Clear();
-                    CaminhoMidia3TextBox.Clear();
-                    DanosCheckBox.Checked = false;
-                    TipoNecessidadeComboBox.SelectedIndex = -1;
-                    SelecionarMidiaBotao.BackColor = Color.FromArgb(150, 180, 200, 210);
-                    CnpjInstituicaoMaskedTextBox.Text = "";
-
-
-                    EmailControl emailControl = new EmailControl();
-
-                    emailControl.EnviarEmail(UsuarioId);
-
-
-                    MessageBox.Show($"Seu relato foi enviado para as seguintes instituições:\n\n{resultado}\n\nAguarde uma resposta em seu e-mail!");
-
                 }
             }
             catch (Exception erro)
@@ -260,7 +275,7 @@ namespace ReclameAcesso
                     {
                         foreach (string caminhoArquivo in dialogoArquivo.FileNames)
                         {
-                                listaCaminhos.Add(caminhoArquivo);
+                            listaCaminhos.Add(caminhoArquivo);
 
                             contador++;
                         }
@@ -314,6 +329,7 @@ namespace ReclameAcesso
         }
         private void TextoTextBox_TextChanged(object sender, EventArgs e)
         {
+
             TextoTextBox.MaxLength = 5000;
 
             CaracteresAtualLbl.Text = Convert.ToString(TextoTextBox.Text.Length);
@@ -345,6 +361,7 @@ namespace ReclameAcesso
         }
         private void EmailTextBox_Click(object sender, EventArgs e)
         {
+            EmailTextBox.BackColor = Color.White;
             if (ValidacaoEmail == false)
             {
                 EmailTextBox.Clear();

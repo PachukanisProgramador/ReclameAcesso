@@ -488,6 +488,7 @@ namespace ReclameAcesso
             this.TextoTextBox.Margin = new System.Windows.Forms.Padding(0);
             this.TextoTextBox.Multiline = true;
             this.TextoTextBox.Name = "TextoTextBox";
+            this.TextoTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.TextoTextBox.Size = new System.Drawing.Size(1219, 358);
             this.TextoTextBox.TabIndex = 4;
             this.TextoTextBox.Text = "Escreva um texto com no máximo 5.000 caracteres.*";
@@ -520,6 +521,7 @@ namespace ReclameAcesso
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1219, 397);
             this.tableLayoutPanel2.TabIndex = 42;
             // 
@@ -531,7 +533,6 @@ namespace ReclameAcesso
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1544, 761);
-            this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.AvisoAsteriscoLabel);
             this.Controls.Add(this.CaracteresLbl);
             this.Controls.Add(this.CaracteresAtualLbl);
@@ -539,6 +540,7 @@ namespace ReclameAcesso
             this.Controls.Add(this.DadosLayoutPanel);
             this.Controls.Add(this.CaracteresMaxLbl);
             this.Controls.Add(this.InsiraDadosPanel);
+            this.Controls.Add(this.tableLayoutPanel2);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1560, 800);

@@ -64,38 +64,45 @@ namespace ReclameAcesso.Controls
                     Credentials = new NetworkCredential(EmailRemetente, SenhaRemetente), //Necessário informar endereço e senha do e-mail remetente.
                     EnableSsl = true
                 };
-
-
-                mensagemEmail = new MailMessage(EmailRemetente, usuario.Email)
-                {
-                    SubjectEncoding = Encoding.GetEncoding("UTF-8"),
-                    BodyEncoding = Encoding.GetEncoding("UTF-8"),
-
-                    Subject = $"[CÓPIA] {reclamacao.TituloTexto}",
-                    Body = $"Olá, {char.ToUpper(usuario.Nome[0]) + usuario.Nome.Substring(1)}! Essa é uma cópia do e-mail que você enviou pelo Reclame Acesso!" +
-                    $"\n\n" +
-                    $"================================================================================" +
-                    $"\n\n" +
-                    $"CNPJ  da instituição: {reclamacao.CnpjInstituicao}\n" +
-                    $"Dano sofrido: {DanoSofrido}\n" +
-                    $"Tipo de necessidade: {PegarTipoNecessidade(reclamacao)}.\n\n" +
-                    $"{reclamacao.Texto}"
-                };
-
-                foreach (Midia midia in midiaTabela.Select())
-                {
-                    if (reclamacao.IdUsuarios == midia.IdUsuarios)
+                    mensagemEmail = new MailMessage(EmailRemetente, usuario.Email)
                     {
-                        Attachment anexo = new Attachment(midia.CaminhoMidia);
-                        mensagemEmail.Attachments.Add(anexo);
-                    }
-                }
+                        SubjectEncoding = Encoding.GetEncoding("UTF-8"),
+                        BodyEncoding = Encoding.GetEncoding("UTF-8"),
 
-                smtpClient.Send(mensagemEmail);
+                        Subject = $"[CÓPIA] {reclamacao.TituloTexto}",
+                        Body = $"Olá, {char.ToUpper(usuario.Nome[0]) + usuario.Nome.Substring(1)}! Essa é uma cópia do e-mail que você enviou pelo Reclame Acesso!" +
+                                        $"\n\n" +
+                                        $"================================================================================" +
+                                        $"\n\n" +
+                                        $"CNPJ  da instituição: {reclamacao.CnpjInstituicao}\n" +
+                                        $"Dano sofrido: {DanoSofrido}\n" +
+                                        $"Tipo de necessidade: {PegarTipoNecessidade(reclamacao)}.\n\n" +
+                                        $"{reclamacao.Texto}"
+                    };
+
+                    foreach (Midia midia in midiaTabela.Select())
+                    {
+                        if (reclamacao.IdUsuarios == midia.IdUsuarios)
+                        {
+                            Attachment anexo = new Attachment(midia.CaminhoMidia);
+                            mensagemEmail.Attachments.Add(anexo);
+                        }
+                    }
+
+                    smtpClient.Send(mensagemEmail);
+
             }
             catch (Exception e)
             {
-                MessageBox.Show("Erro ao enviar e-mail.\n\n" + e, "Ops!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (usuario.Email.Contains("@") == false)
+                {
+                    var mensagem = new Helper.EmailControllerHelper("Email não permitido.");
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao enviar e-mail.\n\n" + e, "Ops!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
             }
             finally
             {
